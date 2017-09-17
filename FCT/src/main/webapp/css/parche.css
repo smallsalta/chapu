@@ -1,0 +1,12 @@
+/**
+ * No sale la barra de scroll en algunas ocasiones. 
+ * Con esto sí sale.
+ **/
+.ui-mobile-viewport-transitioning, .ui-mobile-viewport-transitioning .ui-page {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

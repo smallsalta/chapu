@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="generarPDF" class="com.fct.pdf.GenerarPDFImpl">
+		<property name="margenInferior" value="${margenInferior}"/>
+	</bean>
+	
+	<bean id="contratoPDF" class="com.fct.pdf.ContratoPDFImpl">
+	</bean>
+	
+	<bean id="generarZIP" class="com.fct.zip.GenerarZIPImpl">
+	</bean>
+	
+	<bean id="misc" class="com.fct.comun.MiscelaneaImpl">
+	</bean>
+	
+	<bean id="verBtnContrato" class="java.lang.Boolean">
+		<constructor-arg value="${verBtnContrato}"/>
+	</bean>
+		
+</beans>
