@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fct.comun.Miscelanea;
@@ -37,9 +39,13 @@ implements GenerarZIP
 	{
 		ByteArrayOutputStream salida	= new ByteArrayOutputStream();
 	    ZipOutputStream out 			= new ZipOutputStream(salida);
+	    Logger log 						= LoggerFactory.getLogger( GenerarZIPImpl.class );
 
+	    log.info( this.facturas.size() + " entradas" );
+	    
 	    for( TFacturas f : this.facturas )
 	    {
+	    	log.info( "Procesando " + f.getOid() );
 	    	this.crearEntradaZip(out, f);
 	    }
 

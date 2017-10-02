@@ -15,7 +15,7 @@ import com.fct.dao.FacturasDAO;
 import com.fct.persistencia.TFacturas;
 import com.itextpdf.text.DocumentException;
 
-public class Prueba 
+public class Prueba1 
 {
 	public static void main(String ... args) 
 	throws DocumentException, IOException
