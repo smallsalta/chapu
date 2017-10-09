@@ -204,10 +204,12 @@ public class Contratos
 	{
 		TContratos c	= this.cdao.getContrato(oid);
 		byte[] sello	= this.misc.generarSello(req);
+		byte[] empre	= this.misc.generarEmpresa(req);
 		String nombre	= this.misc.contratoNombre(c);
 		
 		this.pdf.setContrato(c);
 		this.pdf.setSello(sello);
+		this.pdf.setEmpresa(empre);
 		
 		resp.setContentType("application/pdf");
 		resp.setCharacterEncoding("UTF-8");

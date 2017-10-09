@@ -54,6 +54,10 @@
 
 <div class="ui-btn-inner ui-li separador"></div>
 
+<div>
+	<textarea placeholder="Anexo" cols="40" rows="8" name="anexo" id="anexo" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">${contrato.anexo}</textarea>
+</div>
+
 <div class="ui-grid-c btnfila" data-theme="e">
 	<div class="ui-block-a">
 		<input type="button" value="." class="subirCert" data-icon="arrow-u" data-theme="e"/>

@@ -15,6 +15,7 @@ public class ContratosFb
 	private Integer[] agentesext;
 	private Integer[] pruebasext;
 	private Integer[] cantidadext;
+	private String anexo;
 	
 	public String[] getPlacaext() {
 		return placaext;
@@ -81,5 +82,11 @@ public class ContratosFb
 	}
 	public void setCantidadext(Integer[] cantidadext) {
 		this.cantidadext = cantidadext;
+	}
+	public String getAnexo() {
+		return anexo;
+	}
+	public void setAnexo(String anexo) {
+		this.anexo = anexo;
 	}
 }

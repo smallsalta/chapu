@@ -76,6 +76,15 @@ implements Miscelanea
 		
 		return IOUtils.toByteArray(input);
 	}
+	
+	public byte[] generarEmpresa(HttpServletRequest req) 
+	throws IOException
+	{
+		ServletContext sc	= req.getSession().getServletContext();
+		InputStream input	= sc.getResourceAsStream("/WEB-INF/classes/empresa_4.jpg");
+		
+		return IOUtils.toByteArray(input);
+	}
 
 	public String facturaNombre(TFacturas f) 
 	{

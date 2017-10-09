@@ -35,6 +35,7 @@ public class TContratos implements java.io.Serializable {
 	private TClientes TClientes;
 	private Date fecha;
 	private int numero;
+	private String anexo;
 	private List<TLineasContrato> TLineasContratos = new LinkedList<TLineasContrato>();
 
 	public TContratos() {
@@ -104,4 +105,12 @@ public class TContratos implements java.io.Serializable {
 		this.TLineasContratos = TLineasContratos;
 	}
 
+	@Column(name = "anexo", unique = false, nullable = true)
+	public String getAnexo() {
+		return anexo;
+	}
+
+	public void setAnexo(String anexo) {
+		this.anexo = anexo;
+	}
 }

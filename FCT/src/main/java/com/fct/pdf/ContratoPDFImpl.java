@@ -29,6 +29,7 @@ implements ContratoPDF
 {
 	private TContratos contratos;
 	private byte[] sello;
+	private byte[] empresa;
 
 	@Override
 	@SuppressWarnings("unused")
@@ -36,13 +37,15 @@ implements ContratoPDF
 	throws DocumentException, IOException 
 	{
 		ByteArrayOutputStream out 	= new ByteArrayOutputStream();
-		Document document 			= new Document( PageSize.A4, 30f, 30f, 60f, 110f );
+		Document document 			= new Document( PageSize.A4, 40f, 40f, 40f, 40f );
 		PdfWriter writer 			= PdfWriter.getInstance( document, out );
 		
 		document.open();
         document.add( this.createPagina1() );
         document.newPage();
         document.add( this.createPagina2() );
+        document.newPage();
+        document.add( this.createPagina3() );
 		document.close();
 		
 		return out;
@@ -62,6 +65,12 @@ implements ContratoPDF
 	public void setSello(byte[] sello) 
 	{
 		this.sello = sello;	
+	}
+	
+	@Override
+	public void setEmpresa(byte[] empresa) 
+	{
+		this.empresa = empresa;	
 	}
 
 	@Override
@@ -109,13 +118,29 @@ implements ContratoPDF
 		return table;
 	}
 	
+	private PdfPTable createPagina3() 
+	throws BadElementException, IOException
+	{
+		PdfPTable table	= new PdfPTable(1);		
+
+		table.setWidthPercentage(100f);
+
+		this.createCabecera(table);
+		table.addCell( ComunPDF.createCeldaDescripcion(" ") );
+		this.createParrafoAnexo(table);
+		
+		return table;
+	}
+	
 	private void createCabecera(PdfPTable table) 
 	throws BadElementException, IOException
 	{
-		for(int i=0; i<5; i++)
-		{
-			table.addCell( ComunPDF.createCeldaDescripcion(" ") );
-		}
+		PdfPCell cell 	= ComunPDF.createCeldaSello( this.empresa );
+		
+		cell.setHorizontalAlignment( PdfPCell.ALIGN_RIGHT );
+		
+		table.addCell(cell);
+		table.addCell( ComunPDF.createCeldaDescripcion(" ") );
 	}
 	
 	private void createTitulo(PdfPTable table)
@@ -393,6 +418,20 @@ implements ContratoPDF
 		table.addCell( ComunPDF.createCeldaDescripcion( sb8.toString() ) );
 		table.addCell( ComunPDF.createCeldaDescripcion("") );
 		table.addCell( ComunPDF.createCeldaDescripcion( sb9.toString() ) );
+	}
+	
+	private void createParrafoAnexo(PdfPTable table) 
+	throws BadElementException, MalformedURLException, IOException
+	{
+		PdfPCell sello = ComunPDF.createCeldaSello( this.sello );
+		
+		sello.setHorizontalAlignment( PdfPCell.ALIGN_CENTER );		
+		
+		table.addCell( ComunPDF.createCeldaTH("Anexo") );
+		table.addCell( ComunPDF.createCeldaDescripcion(" ") );
+		table.addCell( ComunPDF.createCeldaDescripcion( this.contratos.getAnexo() ) );
+		table.addCell( ComunPDF.createCeldaDescripcion(" ") );
+		table.addCell(sello);
 	}
 	
 	private String calculaCoste()

@@ -139,6 +139,7 @@ implements ContratosDAO
 		c.setFecha( fb.getFechaCert() );
 		c.setNumero( fb.getNumCert() );
 		c.setTClientes( this.cdao.getCliente(oidcliente) );
+		c.setAnexo( fb.getAnexo() );
 		
 		for(int i=0; i<fb.getPlacaext().length; i++)
 		{

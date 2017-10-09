@@ -23,7 +23,10 @@ public class Prueba2
 		ContratoPDF pdf				= context.getBean( ContratoPDF.class );
 		
 		InputStream iss				= ClassLoader.getSystemResourceAsStream("sello.png");
+		InputStream ise				= ClassLoader.getSystemResourceAsStream("empresa_4.jpg");
+		
 		byte[] bytesSello			= IOUtils.toByteArray(iss);
+		byte[] bytesEmpresa			= IOUtils.toByteArray(ise);
 		
 		TContratos tc				= dao.getContratoNoLazy(216);
 		
@@ -31,6 +34,7 @@ public class Prueba2
 		
 		pdf.setContrato(tc);
 		pdf.setSello(bytesSello);
+		pdf.setEmpresa(bytesEmpresa);
 		
 		fos.write( pdf.createPDF().toByteArray() );
 		fos.flush();
