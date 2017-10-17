@@ -6,7 +6,7 @@ import java.io.IOException;
 import com.fct.persistencia.TFacturas;
 import com.itextpdf.text.DocumentException;
 
-public interface GenerarPDF 
+public interface FacturaPDF 
 {
 	public ByteArrayOutputStream createPDF() throws DocumentException, IOException;
 	public ByteArrayOutputStream createPDF(TFacturas tFacturas, byte[] logo) throws DocumentException, IOException;

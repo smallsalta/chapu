@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fct.comun.Miscelanea;
 import com.fct.pdf.ContratoPDF;
-import com.fct.pdf.GenerarPDF;
+import com.fct.pdf.FacturaPDF;
 import com.fct.persistencia.TContratos;
 import com.fct.persistencia.TFacturas;
 import com.itextpdf.text.DocumentException;
@@ -21,7 +21,7 @@ public class GenerarZIPImpl
 implements GenerarZIP
 {
 	@Autowired
-	private GenerarPDF fpdf;
+	private FacturaPDF fpdf;
 	
 	@Autowired
 	private ContratoPDF cpdf;

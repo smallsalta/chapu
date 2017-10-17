@@ -13,7 +13,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfPageEventHelper;
 import com.itextpdf.text.pdf.PdfWriter;
 
-public class HeaderAndFooter 
+public class FacturaHeaderFooter 
 extends PdfPageEventHelper 
 {
 	private float base;

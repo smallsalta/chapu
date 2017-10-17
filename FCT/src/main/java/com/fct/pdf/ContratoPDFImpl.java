@@ -32,13 +32,15 @@ implements ContratoPDF
 	private byte[] empresa;
 
 	@Override
-	@SuppressWarnings("unused")
 	public ByteArrayOutputStream createPDF() 
 	throws DocumentException, IOException 
 	{
 		ByteArrayOutputStream out 	= new ByteArrayOutputStream();
-		Document document 			= new Document( PageSize.A4, 40f, 40f, 40f, 40f );
+		Document document 			= new Document( PageSize.A4, 30f, 30f, 30f, 30f );
 		PdfWriter writer 			= PdfWriter.getInstance( document, out );
+		ContratoHeaderFooter event	= new ContratoHeaderFooter();
+
+		writer.setPageEvent(event);
 		
 		document.open();
         document.add( this.createPagina1() );

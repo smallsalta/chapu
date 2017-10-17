@@ -20,7 +20,7 @@ public class Prueba1
 	{
 		ApplicationContext context	= new ClassPathXmlApplicationContext("classpath:beans*.xml");
 		FacturasDAO dao				= context.getBean( FacturasDAO.class );
-		GenerarPDF pdf				= context.getBean( GenerarPDF.class );
+		FacturaPDF pdf				= context.getBean( FacturaPDF.class );
 		
 		InputStream ise				= ClassLoader.getSystemResourceAsStream("empresa_3.jpg");
 		byte[] bytes 				= IOUtils.toByteArray(ise);

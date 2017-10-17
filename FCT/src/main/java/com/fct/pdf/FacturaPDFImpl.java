@@ -20,8 +20,8 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
-public class GenerarPDFImpl 
-implements GenerarPDF
+public class FacturaPDFImpl 
+implements FacturaPDF
 {
 	private final int[] porcentajes = {15, 70, 15}; 
 	private TFacturas factura;
@@ -43,7 +43,7 @@ implements GenerarPDF
 		ByteArrayOutputStream out 	= new ByteArrayOutputStream();
 		Document document 			= new Document( PageSize.A4, 30f, 30f, 60f, this.margenInferior );
 		PdfWriter writer 			= PdfWriter.getInstance( document, out );
-		HeaderAndFooter event		= new HeaderAndFooter();
+		FacturaHeaderFooter event		= new FacturaHeaderFooter();
 		
 		event.setBase( this.calculateBase( this.factura ) );
 		event.setIva( this.factura.getIva() );

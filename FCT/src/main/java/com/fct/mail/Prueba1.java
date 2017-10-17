@@ -11,7 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.fct.dao.FacturasDAO;
-import com.fct.pdf.GenerarPDF;
+import com.fct.pdf.FacturaPDF;
 import com.fct.persistencia.TFacturas;
 import com.itextpdf.text.DocumentException;
 
@@ -23,7 +23,7 @@ public class Prueba1 {
 		ApplicationContext context	= new ClassPathXmlApplicationContext("classpath:beans_*.xml");
 		
 		FacturasDAO dao		= context.getBean( FacturasDAO.class );
-		GenerarPDF pdf		= context.getBean( GenerarPDF.class );
+		FacturaPDF pdf		= context.getBean( FacturaPDF.class );
 		MandarCorreo mail	= context.getBean( MandarCorreo.class );
 		
 		InputStream ise		= ClassLoader.getSystemResourceAsStream("empresa_3.jpg");

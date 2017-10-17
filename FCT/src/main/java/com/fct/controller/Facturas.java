@@ -24,7 +24,7 @@ import com.fct.dao.FacturasDAO;
 import com.fct.fb.FacturasBuscarFb;
 import com.fct.fb.FacturasFb;
 import com.fct.mail.MandarCorreo;
-import com.fct.pdf.GenerarPDF;
+import com.fct.pdf.FacturaPDF;
 import com.fct.persistencia.TClientes;
 import com.fct.persistencia.TFacturas;
 import com.fct.zip.GenerarZIP;
@@ -37,7 +37,7 @@ public class Facturas
 	private FacturasDAO fdao;
 	
 	@Autowired
-	private GenerarPDF pdf;
+	private FacturaPDF pdf;
 	
 	@Autowired
 	private GenerarZIP zip;
