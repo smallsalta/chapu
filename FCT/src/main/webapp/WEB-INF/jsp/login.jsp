@@ -109,7 +109,7 @@
 			</div>
 			
 			<div data-role="footer"> 
-				&nbsp; Versión 2.2.0
+				&nbsp; Versión 2.3.0
 			</div>
 		
 		</div>
