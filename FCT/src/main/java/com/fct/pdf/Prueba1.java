@@ -22,7 +22,7 @@ public class Prueba1
 		FacturasDAO dao				= context.getBean( FacturasDAO.class );
 		FacturaPDF pdf				= context.getBean( FacturaPDF.class );
 		
-		InputStream ise				= ClassLoader.getSystemResourceAsStream("empresa_3.jpg");
+		InputStream ise				= ClassLoader.getSystemResourceAsStream("empresa_1.jpg");
 		byte[] bytes 				= IOUtils.toByteArray(ise);
 		
 		TFacturas tf				= dao.getFacturaNoLazy(25);
