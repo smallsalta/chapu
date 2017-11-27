@@ -81,7 +81,8 @@ implements Miscelanea
 	throws IOException
 	{
 		ServletContext sc	= req.getSession().getServletContext();
-		InputStream input	= sc.getResourceAsStream("/WEB-INF/classes/empresa_4.jpg");
+//		InputStream input	= sc.getResourceAsStream("/WEB-INF/classes/empresa_4.jpg");
+		InputStream input	= sc.getResourceAsStream("/WEB-INF/classes/oca.jpg");
 		
 		return IOUtils.toByteArray(input);
 	}
