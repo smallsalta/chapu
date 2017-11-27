@@ -23,7 +23,8 @@ public class Prueba2
 		ContratoPDF pdf				= context.getBean( ContratoPDF.class );
 		
 		InputStream iss				= ClassLoader.getSystemResourceAsStream("sello.png");
-		InputStream ise				= ClassLoader.getSystemResourceAsStream("empresa_4.jpg");
+//		InputStream ise				= ClassLoader.getSystemResourceAsStream("empresa_4.jpg");
+		InputStream ise				= ClassLoader.getSystemResourceAsStream("oca.jpg");
 		
 		byte[] bytesSello			= IOUtils.toByteArray(iss);
 		byte[] bytesEmpresa			= IOUtils.toByteArray(ise);
