@@ -46,8 +46,10 @@ implements ContratoPDF
         document.add( this.createPagina1() );
         document.newPage();
         document.add( this.createPagina2() );
+//        document.newPage();
+//        document.add( this.createPagina3() );
         document.newPage();
-        document.add( this.createPagina3() );
+        document.add( this.createPagina4() );
 		document.close();
 		
 		return out;
@@ -124,11 +126,65 @@ implements ContratoPDF
 	throws BadElementException, IOException
 	{
 		PdfPTable table	= new PdfPTable(1);		
+		PdfPCell sello 	= ComunPDF.createCeldaSello( this.sello );
+		Font f			= new Font();
+		
+		f.setSize(10F);
+		table.setWidthPercentage(100f);
+		sello.setHorizontalAlignment( PdfPCell.ALIGN_CENTER );
+
+		this.createCabecera(table);
+		
+		table.addCell( ComunPDF.createCeldaTH("INSPECCIÓN VISUAL") );
+		table.addCell( ComunPDF.createCeldaDescripcion(" ") );
+		table.addCell( ComunPDF.createCeldaDescripcion("T: trimestral, A: anual. B: bien, M: mal") );
+		table.addCell( ComunPDF.createCeldaDescripcion(" ") );
+		
+		table.addCell( ComunPDF.createCeldaDescripcion("[       ] ¿La señal de cada extintor es adecuada, visible e identificable y correctamente colocada?", f) );
+		table.addCell( ComunPDF.createCeldaDescripcion("[       ] ¿El extintor es accesible y está correctamente ubicado para acceder a él en caso de fuego?", f) );
+		table.addCell( ComunPDF.createCeldaDescripcion("[       ] ¿La altura desde el suelo es correcta (máximo 1,70 m)?", f) );
+		table.addCell( ComunPDF.createCeldaDescripcion("[       ] ¿Están exentos de corrosión, golpes, abolladuras, suciedad?", f) );
+		table.addCell( ComunPDF.createCeldaDescripcion("[       ] ¿Los precintos y seguros están intactos?", f) );
+		table.addCell( ComunPDF.createCeldaDescripcion("[       ] ¿El anclaje y soporte de fijación es correcto y seguro?", f) );
+		table.addCell( ComunPDF.createCeldaDescripcion("[       ] ¿Están en buen estado la manguera, boquilla, válvula y manómetro?", f) );
+		table.addCell( ComunPDF.createCeldaDescripcion("[       ] ¿La identificación y etiquetas (fabricación, retimbrado y mantenimiento) son correctas?", f) );
+		table.addCell( ComunPDF.createCeldaDescripcion("[       ] ¿La comprobación del estado de carga del extintor mediante pesasa es correcto?", f) );
+		table.addCell( ComunPDF.createCeldaDescripcion("[       ] ¿En extintores de presión adosada, es correcto el peso de la carga del botellín?", f) );
+		table.addCell( ComunPDF.createCeldaDescripcion("[       ] ¿Está retimbrado el extintor (y botellín en extintores de presión adosada) conforme al RAP?", f) );
+		table.addCell( ComunPDF.createCeldaDescripcion("[       ] ¿El agente exterior está exento de anomalías aparentes?", f) );
+		table.addCell( ComunPDF.createCeldaDescripcion("[       ] ¿Es correcta la presión interior?", f) );
+		table.addCell( ComunPDF.createCeldaDescripcion("[       ] ¿La cantidad, tipo y eficacia de los extintores es correcto conforme al uso y zona que protege?", f) );
+		
+		table.addCell( ComunPDF.createCeldaDescripcion(" ") );
+		
+		table.addCell( ComunPDF.createCeldaTH("CONCLUSIÓN") );
+		table.addCell( ComunPDF.createCeldaDescripcion(" ") );
+		
+		table.addCell( ComunPDF.createCeldaDescripcion("Realizada la correspondiente revisión y comprobaciones, el sistema quedó:") );
+		table.addCell( ComunPDF.createCeldaDescripcion("[  ] En correcto funcionamiento, sin anomalías.") );
+		table.addCell( ComunPDF.createCeldaDescripcion("[  ] Con las anomalías indicadas en anexo y pendientes de corregir.") );
+		
+		table.addCell( ComunPDF.createCeldaDescripcion(" ") );
+		
+		table.addCell( ComunPDF.createCeldaDescripcion("Periodicidad de la revisión:") );
+		table.addCell( ComunPDF.createCeldaDescripcion("[  ] Trimestral") );
+		table.addCell( ComunPDF.createCeldaDescripcion("[  ] Semestral") );
+		table.addCell( ComunPDF.createCeldaDescripcion("[  ] Anual") );
+		
+		table.addCell( ComunPDF.createCeldaDescripcion(" ") );
+		table.addCell(sello);
+		
+		return table;
+	}
+	
+	private PdfPTable createPagina4() 
+	throws BadElementException, IOException
+	{
+		PdfPTable table	= new PdfPTable(1);		
 
 		table.setWidthPercentage(100f);
 
 		this.createCabecera(table);
-		table.addCell( ComunPDF.createCeldaDescripcion(" ") );
 		this.createParrafoAnexo(table);
 		
 		return table;
@@ -429,7 +485,7 @@ implements ContratoPDF
 		
 		sello.setHorizontalAlignment( PdfPCell.ALIGN_CENTER );		
 		
-		table.addCell( ComunPDF.createCeldaTH("Anexo") );
+		table.addCell( ComunPDF.createCeldaTH("ANEXO") );
 		table.addCell( ComunPDF.createCeldaDescripcion(" ") );
 		table.addCell( ComunPDF.createCeldaDescripcion( this.contratos.getAnexo() ) );
 		table.addCell( ComunPDF.createCeldaDescripcion(" ") );

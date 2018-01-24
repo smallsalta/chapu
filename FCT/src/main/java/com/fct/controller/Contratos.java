@@ -227,9 +227,11 @@ public class Contratos
 		{
 			TContratos c	= this.cdao.getContrato(oid);
 			byte[] sello	= this.misc.generarSello(req);
+			byte[] empre	= this.misc.generarEmpresa(req);
 			
 			this.pdf.setContrato(c);
 			this.pdf.setSello(sello);
+			this.pdf.setEmpresa(empre);
 			
 			TClientes tf	= c.getTClientes();
 			byte[] fact		= this.pdf.createPDF().toByteArray();

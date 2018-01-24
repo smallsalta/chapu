@@ -28,10 +28,10 @@ public class Prueba2
 		GenerarZIP zip 				= context.getBean( GenerarZIP.class );
 		
 		FacturasBuscarFb fb			= new FacturasBuscarFb();
-		fb.setFini("2017-07-01");
-		fb.setFfin("2017-09-30");
+		fb.setFini("2017-12-01");
+		fb.setFfin("2018-01-20");
 		fb.setCheckempresa(true);
-		fb.setOidempresa(2);
+		fb.setOidempresa(3);
 		
 		List<TFacturas> facturas 	= dao.getFacturas(fb);
 		List<TFacturas> facturasnl 	= new LinkedList<TFacturas>();
